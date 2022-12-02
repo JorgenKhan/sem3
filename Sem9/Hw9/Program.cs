@@ -1,4 +1,4 @@
-﻿// Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от 1 до N.
+﻿// Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
 /*
 void PrintDigits(int n)
 {
@@ -9,52 +9,40 @@ void PrintDigits(int n)
  int n = 8;
  Console.Write($"N = {n} -> ");
  PrintDigits(n);
-
-// Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
-
-int SumOfDigits(int n)
+ */
+// Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+/*
+int SumOfElements(int firstNum, int lastNum)
 {
-    if (n > 0) return SumOfDigits(n / 10) + n % 10;
-    else return 0;
+    int sum = firstNum;
+    if (sum > lastNum) return 0;
+    return sum += SumOfElements(sum + 1, lastNum);
 }
 
-// Console.WriteLine($"Сумма цифр в числе: {SumOfDigits(561)}");
-// Console.WriteLine();
+Console.Write("Input meaning of m: ");
+int m = Convert.ToInt32(Console.ReadLine());
 
-// Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в 
-// промежутке от M до N.
+Console.Write("Input meaning of n: ");
+int n = Convert.ToInt32(Console.ReadLine());
 
-
-void PrintNums(int m, int n)
+int result = SumOfElements(m,n);
+Console.WriteLine("Sum of elements from m to n is: " + result);
+*/
+// Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+/*
+int A(int m, int n)
 {
-    if (m > n)
-    {
-        Console.Write(m + " ");
-        PrintNums(m - 1, n);
-    }
-    if (n > m)
-    {
-        PrintNums(m, n - 1);
-        Console.Write(n + " ");
-    }
-    if (m == n) Console.Write(m + " ");
-}
+    if (m == 0) return n + 1;
+    if (m > 0 && n == 0) return A(m - 1, 1);
+    if (m > 0 && n > 0) return A(m - 1, A(m,n - 1));
+    return A(m,n);
+}                  
 
-// int m = 5;
-// int n = 1;
-// PrintNums(m,n);
+Console.Write("Input number m greater than 0: ");
+int m = Convert.ToInt32(Console.ReadLine());
 
-// Напишите программу, которая на вход принимает два числа A и B, и возводит число А в целую степень B.
+Console.Write("Input number n greater than 0: ");
+int n = Convert.ToInt32(Console.ReadLine());
 
-double PowerAB(double a, double b)
-{
-    if (b < 0) return (1 / a) * PowerAB(a, b + 1); // a ^ (-2) = 1 / (a * a)
-    if (b > 0) return a * PowerAB(a, b - 1);
-    else return 1;
-}
-
-Console.WriteLine(PowerAB(2, -3));
-
-Console.ReadLine();
-
+Console.WriteLine($"m = {m}, n = {n} -> A(m,n) = {A(m,n)}");      
 */
